@@ -1,0 +1,38 @@
+.engager-desc-txt{
+    text-align: justify;
+    font-family: arkHelveticaLightZero;
+    color: rgb(160, 160, 160);
+    padding-top: 10px;
+}
+
+.engager-img-number {
+    height: 50px;
+    margin-top: 40px;
+    margin-left: 15px;
+}
+
+.engager-img-number-icon {
+    height: 100px;
+    margin-top: 10px;
+    margin-left: -25px;
+}
+
+.engager-img-number-icon-2 {
+    height: 60px;
+    margin-top: 35px;
+    margin-left: -10px;
+}
+
+.image-engager-desc{
+    width: 470px;
+    margin-top: 50px
+}
+
+.image-engager-margin-top-300{
+    margin-top: -32px;
+    margin-left: 0px;
+}
+
+.image-engager-margin-left-0{
+    margin-left: 0px;
+}

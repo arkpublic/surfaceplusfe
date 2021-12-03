@@ -1,0 +1,129 @@
+.card-container{
+    width: 24%;
+    position: relative;
+}
+
+.card-container:nth-child(1) .card{
+    float: left;
+}
+
+.card-container:nth-child(2) .card{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-container:nth-child(3) .card{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-container:nth-child(4) .card{
+    float: right;
+}
+
+.card-container:nth-child(5) .card{
+    float: left;
+}
+
+.card-container:nth-child(6) .card{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-container:nth-child(7) .card{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-container:nth-child(8) .card{
+    float: right;
+}
+
+.card {
+    width: 270px;
+    height: 350px;
+    position: relative;
+    cursor: pointer; 
+    margin-bottom: 36px;
+    align-items: left;
+}
+
+.card-background {
+    height: 270px;
+}
+.card-imgs {
+    width: 270px;
+    height: 270px;
+    position: relative;
+}
+.subCard {
+    width: 100%;
+    height: 80px;
+    background: rgb(251,251,251);
+    transition: height 0.5s, background 0.45s, color 1s linear;
+    position: absolute;
+    bottom: 0px;
+}
+.cardHovered {
+    height: 190px;
+    background: #343a40;
+    transition: height 0.5s, background 0.45s, color 1s linear;
+    color: white;
+}
+.subCard__title {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.__title-head {
+    display: flex;
+    flex-direction: column;
+}
+.card-by {
+    color: rgb(60, 60, 60);
+    font-family: arkHelveticaLightZero; 
+    font-size: 12px; 
+    font-weight: 100; 
+    margin: 0 1rem;
+}
+.expand-toggle {
+    height: 1.5rem;
+    margin: 0 1rem;
+    transform: rotate(90deg);
+    opacity: 1;
+    transition: transform 0.45s, opacity 0.45s, color 1s linear;
+    color: white;
+}
+
+.title__span, .body__p {
+    color: rgb(60, 60, 60);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0 1rem; 
+}
+.title__span {
+    font-size: 14px;
+    font-weight: 600;
+}
+.body__p {
+    font-size: 14px;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.35s, color 1s linear;
+    text-align: justify;
+    color: white;
+}
+.p_hovered {
+    opacity: 1;
+    display: block;
+    transition: opacity 0.35s, color 0s linear;
+    color: white;
+}
+.arrow_hovered {
+    transform: rotate(180deg);
+} 
+.img_hovered {
+    opacity: 0.60;
+    transition: transform 0.45s, opacity 0.45s;
+}

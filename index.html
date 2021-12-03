@@ -1,0 +1,629 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Surface+</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/surface-plus-design.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/04-engager.css">
+        <link rel="stylesheet" href="css/plus-desing.css">
+        <link rel="stylesheet" href="css/promo-catalogs.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/cards-test.css">
+    </head>
+    <body>
+      <div class="sfp-container-fluid" id="homepage-app">
+        <!--Banner-->
+        <div class="sfp-row-fluid sfp-banner">
+            <div class="sfp-col-2">
+                <img src="img/logo.png" class="img-logo"/>
+            </div>
+            <div class="sfp-col-6">
+                <div class="list-menu flex-row align-t-center"> 
+                    <div class="list-menu-option" v-bind:class="'list-menu-option-' + menutitle.classMenu" v-for="(menutitle, index) in dropdownmenu" v-on:mouseover="selectDropDownMenu(menutitle.menuName, index);" v-on:click="selectDropDownMenu(menutitle.menuName, index);">{{menutitle.menuName}}</div>
+                </div>
+            </div>
+            <div class="sfp-col-2"></div>
+            <div class="sfp-col-2 banner-right-side">
+                <div class="btn-register">REGISTER</div>
+                <div class="btn-enes">EN/ES</div>
+                <div><img src="icons/search_white.svg" class="search-button-icon" v-on:click="openSearchBar(); autoHideAndShowSearchBar();"></div>
+            </div>
+            
+            <div id="search-bar-module" class="search-bar-module">
+                <div>
+                    <button class="sb-button sb-search-button"><img src="icons/search_white.svg"></button>
+                    <input type="text" placeholder="Search..." class="sb-input" v-on:keydown="autoHideAndShowSearchBar();" v-model="searchBar.searchTerm" />
+                    <button class="sb-button sb-close-button"><img src="icons/close_white.svg" v-on:click="openSearchBar()"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-fixed-to-left t-center"  v-on:mouseleave="timerToHideSocialMediaButton()">
+            <span class="btn-div-social social-media btn-span no-clicked" v-on:click="activateSocialMediaButton()">
+                <img src="icons/redesmas.png" v-if="!isSocialMediaActive">
+                <img src="icons/redesmenos.png" v-else="isSocialMediaActive">
+            </span>
+            <button class="social-media social-absolute-to-left" v-bind:class="socialbutton.smfacebook">
+                <a class="a-link-social" href="#">
+                    <img src="icons/btn_fb.jpg">
+                </a>
+            </button>
+            <button class="social-media social-absolute-to-left" v-bind:class="socialbutton.sminstagram">
+                <a class="a-link-social" href="#">
+                    <img src="icons/btn_ig.jpg">
+                </a>
+            </button>
+        </div>
+ 
+        <!--drop down menu-->
+        <div class="sfp-container-fluid list-menu-display">
+            <div class="sfp-row-fluid">
+                <div class="sfp-col-2-fluid"><div class="list-menu-catalog-empty"></div></div>
+                <div class="sfp-col-2-fluid">
+                    <div class="list-menu-catalog flex-col" >
+                        <div class="list-menu-catalog-option sfp-col-6-fluid" v-for="(catalog, index) in selectedDropDownMenu.catalog" v-on:click="selectDropDownCatalog(catalog.catalogName, index);"><span class="lmc-span">{{catalog.catalogName}}</span></div>
+                    </div>
+                </div>
+                <div class="sfp-col-4-fluid flex-row">
+                    <div class="list-menu-items sfp-col-6-fluid">
+                        <div class="list-menu-catalog-items" v-for="(items, index) in selectedDropDownCatalog.items" v-on:click="selectDropDownItem(items.itemName, index);">{{items.itemName}}</div>
+                    </div>
+                    <div class="list-menu-item-description sfp-col-6-fluid">
+                        <div class="list-menu-item-description-image"><img v-bind:src="'imgs/' + selectedDropDownItem.itemImage"/> </div>
+                        <div class="list-menu-item-description-texts">
+                            <div class="list-menu-item-description-text-center">
+                                <div class="list-menu-item-description-title">{{selectedDropDownItem.itemHeader}}</div>
+                                <div class="list-menu-item-description-sub-title">{{selectedDropDownItem.itemDescription}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sfp-col-4-fluid"></div>
+            </div>
+            <span class="menu-span-modal"></span>
+        </div>
+        <!--end drop down menu-->
+
+        <!--END Banner-->
+
+        <!--Carousel-->
+        <div class="sfp-row-fluid carousel-main">
+            <div class="slideshow-container sfp-container-fluid">
+                
+                <div class="mainCarouselSlides fade sfp-row-fluid">
+                    <div class="numbertext">3 / 4</div>
+                    <div class="main-carousel-text sfp-container-fluid">
+                        <div class="sfp-row">
+                            <div class="sfp-col-2"></div>
+                            <div class="sfp-col-8">
+                                <div class="main-carousel-text-title ark-carousel-description-header">SURFACE <br />PLUS</div>
+                                <br />
+                                <div class="main-carousel-text-description ark-carousel-description-container">Architectural Surfaces</div>
+                            </div>
+                            <div class="sfp-col-2"></div>
+                        </div>
+                    </div>
+                    <div class="img-carouse-container">
+                        <img src="img/extralarge/img001.jpg" class="img-carousel">
+                    </div>
+                </div>
+                
+                <div class="mainCarouselSlides fade sfp-row-fluid">
+                    <div class="numbertext">3 / 4</div>
+                    <div class="main-carousel-text sfp-container-fluid">
+                        <div class="sfp-row">
+                            <div class="sfp-col-2"></div>
+                            <div class="sfp-col-8">
+                                <div class="main-carousel-text-title ark-carousel-description-header">SURFACE <br />PLUS</div>
+                                <br />
+                                <div class="main-carousel-text-description ark-carousel-description-container">Architectural Surfaces</div>
+                            </div>
+                            <div class="sfp-col-2"></div>
+                        </div>
+                    </div>
+                    <div class="img-carouse-container">
+                        <img src="img/extralarge/img002.jpg" class="img-carousel">
+                    </div>
+                </div>
+
+                <div class="mainCarouselSlides fade sfp-row-fluid">
+                    <div class="numbertext">3 / 4</div>
+                    <div class="main-carousel-text sfp-container-fluid">
+                        <div class="sfp-row">
+                            <div class="sfp-col-2"></div>
+                            <div class="sfp-col-8">
+                                <div class="main-carousel-text-title ark-carousel-description-header">SURFACE <br />PLUS</div>
+                                <br />
+                                <div class="main-carousel-text-description ark-carousel-description-container">Architectural Surfaces</div>
+                            </div>
+                            <div class="sfp-col-2"></div>
+                        </div>
+                    </div>
+                    <div class="img-carouse-container">
+                        <img src="img/extralarge/img003.jpg" class="img-carousel">
+                    </div>
+                </div>
+
+                <div class="mainCarouselSlides fade sfp-row-fluid">
+                    <div class="numbertext">3 / 4</div>
+                    <div class="main-carousel-text sfp-container-fluid">
+                        <div class="sfp-row">
+                            <div class="sfp-col-2"></div>
+                            <div class="sfp-col-8">
+                                <div class="main-carousel-text-title ark-carousel-description-header">SURFACE <br />PLUS</div>
+                                <br />
+                                <div class="main-carousel-text-description ark-carousel-description-container">Architectural Surfaces</div>
+                            </div>
+                            <div class="sfp-col-2"></div>
+                        </div>
+                    </div>
+                    <div class="img-carouse-container">
+                        <img src="img/extralarge/img004.jpg" class="img-carousel">
+                    </div>
+                </div>
+
+                <div class="mainCarouselSlides fade sfp-row-fluid">
+                    <div class="numbertext">3 / 4</div>
+                    <div class="main-carousel-text sfp-container-fluid">
+                        <div class="sfp-row">
+                            <div class="sfp-col-2"></div>
+                            <div class="sfp-col-8">
+                                <div class="main-carousel-text-title ark-carousel-description-header">SURFACE <br />PLUS</div>
+                                <br />
+                                <div class="main-carousel-text-description ark-carousel-description-container">Architectural Surfaces</div>
+                            </div>
+                            <div class="sfp-col-2"></div>
+                        </div>
+                    </div>
+                    <div class="img-carouse-container">
+                        <img src="img/extralarge/img005.jpg" class="img-carousel">
+                    </div>
+                </div>
+                <div class="carousel-prev-button" onclick="plusSlidesMainCarousel(-1)">
+                    <a class="prev">
+                        <img src="icons/carouse_arrow_left.svg">
+                    </a>
+                </div>
+                <div class="carousel-next-button" onclick="plusSlidesMainCarousel(1)">
+                    <a class="next">
+                        <img src="icons/carousel_arrow_right.svg">
+                    </a>
+                </div>
+                
+
+            </div>
+            <br />
+            <div class="carousel-dots-container" style="text-align:center">
+                <div class="progress-ring-container dot" >
+                    <div class="spinnerForCarousel" id="spinnerLoadingForCarousel01" onclick="currentSlideMainCarousel(1)"></div>
+                </div>
+                <div class="progress-ring-container dot" >
+                    <div class="spinnerForCarousel" id="spinnerLoadingForCarousel02" onclick="currentSlideMainCarousel(2)"></div>
+                </div>
+                <div class="progress-ring-container dot" >
+                    <div class="spinnerForCarousel" id="spinnerLoadingForCarousel03" onclick="currentSlideMainCarousel(3)"></div>
+                </div>
+                <div class="progress-ring-container dot" >
+                    <div class="spinnerForCarousel" id="spinnerLoadingForCarousel04" onclick="currentSlideMainCarousel(4)"></div>
+                </div>
+                <div class="progress-ring-container dot" >
+                    <div class="spinnerForCarousel" id="spinnerLoadingForCarousel05" onclick="currentSlideMainCarousel(5)"></div>
+                </div>
+            </div>
+        </div>
+        <!--END Carousel-->
+
+        <!--Carousel cards-->
+        <div class="sfp-row-fluid">
+            <div class="carousel-cards">
+                <div class="carousel-card-section left-card"><div class="carousel-card-title">register as an student</div></div> 
+                <div class="carousel-card-section">
+                    <div class="carousel-card-title">central arts of argentina</div>
+                    <div class="carousel-card-description"> 
+                        <div class="_cc-description"> 
+                            <span class="_ccd-title">PROJECT</span> 
+                            <span class="_ccd-content">Central Arts of Argentina</span> 
+                        </div> 
+                        <div class="_cc-description"> 
+                            <span class="_ccd-title">ARCHITECT / FIRM</span> 
+                            <span class="_ccd-content">CORE Architects</span> 
+                        </div> 
+                        <div class="_cc-description"> 
+                            <span class="_ccd-title">YEAR</span> 
+                            <span class="_ccd-content">2018</span> 
+                        </div> <div class="_cc-description"> 
+                            <span class="_ccd-title">PHOTOGRAPH</span> 
+                            <span class="_ccd-content">Mel Jockovski</span> 
+                        </div> <div class="_cc-description"> 
+                            <span class="_ccd-title">TYPE OF SURFACE</span>
+                            <span class="_ccd-content">Tempered Glass. CNC Metal Sheet, Synthetic Wood</span> 
+                        </div> 
+                    </div> 
+                </div> 
+                <div class="carousel-card-section right-card">
+                    <div class="carousel-card-title">Our Partners</div>
+                    <div class="carousel-card-carousel-our-partners">
+
+                        <div class="slideshow-container-our-parners">
+                            <div class="ourParnetsSlides fade" v-for="images in ourPartnersImages" v-if="images.isActive">
+                                <div class="our-partners-image-space" v-for="image in images.images">
+                                    <img v-bind:src="image"/>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+        <!--DYNAMIC LIST-->
+        <div class="sfp-row-fluid" v-for="rowContent in homePageContentList">
+            <div class="sfp-col-12-fluid">
+                
+                
+                <!--STARTED SPACES DESIGN -->
+                <div class="general-border-bottom" v-if="rowContent.surfaceViewType == 'single-space-just-line'"></div>
+                <div class="general-border-bottom" v-if="rowContent.surfaceViewType == 'single-space'">
+                    <div class="general-border-bottom-red"></div>
+                </div>
+                <div class="sfp-row-fluid general-border-bottom-plus" v-if="rowContent.surfaceViewType == 'plus-space'">
+                    <div class="sfp-col-12-fluid">
+                        <div class="sfp-row-fluid">
+                            <div class="sfp-col-2-fluid"></div>
+                            <div class="sfp-col-4-fluid general-border-bottom-plus-not-require-background">
+                                <div class="general-border-bottom-plus-one"></div>
+                            </div>
+                            <div class="sfp-col-6-fluid general-border-bottom-plus-not-require-background">
+                                <div class="general-border-bottom-plus-two"></div>
+                            </div>
+                        </div>
+                        <div class="sfp-row-fluid">
+                            <div class="sfp-col-2-fluid"></div>
+                            <div class="sfp-col-4-fluid general-border-bottom-plus-not-require-background">
+                                <div class="general-border-bottom-red"></div>
+                                <div class="general-border-bottom-plus-three"></div>
+                            </div>
+                            <div class="sfp-col-6-fluid general-border-bottom-plus-require-background">
+                                <div class="general-border-bottom-plus-four"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="general-border-bottom-none" v-if="rowContent.surfaceViewType == 'none-space'" />
+                <div class="general-border-bottom-none-with-red" v-if="rowContent.surfaceViewType == 'none-space-with-red-icon'">
+                    <div class="general-border-bottom-red"></div>
+                </div>
+                <!--END OF SPACES DESIGN -->
+
+
+                <!--STARTED BANNER DESIGN -->
+                <div class="sfp-row-fluid" v-if="rowContent.surfaceViewType == 'started-banner'">
+                    <div class="sfp-col-2" ></div>
+
+                    <div class="sfp-col-4">
+                        <div class="sfp-row-fluid h-90"></div>
+                        <div class="sfp-row-fluid">
+                            <div class="flex-aj-center">
+                                <div class="">
+                                    <!-- <div class="sfp-col-2">
+                                        <img src="img/logo-is-for.png" class="img-logo-100"/>
+                                    </div> -->
+                                    <div class="sfp-helvetica-lt-std-bold surface-title">{{rowContent.title1}}<span class="red-cross">+</span></div>
+                                    <div class="sfp-helvetica-lt-std-bold surface-title-2">{{rowContent.title2}}</div> 
+                                    <div class="page-header-48 sfp-helvetica-ultra-with-space">{{rowContent.title3}}</div> 
+                                    <div class="page-header-48 sfp-helvetica-ultra-with-space margin-top-5">{{rowContent.title4}}</div>
+                                    <p class="sfp-helvetica-lt-std-light-zero started-banner-container-information-description text-justify padding-60">{{rowContent.subTitle}}</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="">
+                            <div class="flex-aj-none">
+                                <div class="button-show-more-blue sfp-helvetica-lt-std-light-zero primary-button-color padding-all-8">DISCOVER
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sfp-row-fluid height-120 "></div>
+                    </div>
+                    <div class="sfp-col-6">
+                        <div class="sfp-row-fluid h-40"></div>
+                        <img class="material-container-image-dynamic-button-information-image-80" src="imgs/arskin.jpg"> 
+                    </div>
+
+                </div>
+
+                
+                
+                <!--END OF STARTED BANNER DESIGN -->
+
+
+
+
+                <!--STARTED FLOATING CARDS -->
+                <div class="sfp-row-fluid" v-if="rowContent.surfaceViewType == 'floating-cards'" style="background-color: #fff;">
+                    <div class="sfp-col-2"><!--Empty space--></div>
+                    <div class="sfp-col-8-fluid projects-container">
+                        <div class="sfp-row-fluid">
+                            <div class="sfp-col-12 projects-container-subtitle">
+                                <span class="sfp-helvetica-lt-std-bold" v-html="rowContent.title"></span>
+                            </div> 
+                            <div class="sfp-col-12 projects-container-subtitle">
+                                <span class="sfp-helvetica-lt-std-bold card-title-editorial" v-html="rowContent.subtitle"></span>
+                            </div> 
+                            <div class="sfp-col-12 projects-container-title">
+                                <div class="page-header sfp-helvetica-ultra-with-space" v-html="rowContent.subtitlemain"></div>
+                            </div> 
+                        </div>
+                        <div class="sfp-row-fluid">
+                            <div class="sfp-col-12-fluid cards-container">
+                                <!-- INICIA LA MAGIA DE HRIOS-->
+                                <div class="card-container" v-for="(card, index) in rowContent.cardListImages">
+                                    <div class="card" >
+                                        <div class="card-imgs">
+                                            <img class="card-background" v-bind:src="card.url">
+                                        </div>
+                                        <div class="subCard">
+                                            <div class="subCard__title">
+                                                <div class="__title-head">
+                                                    <span class="title__span sfp-helvetica-lt-std-bold-important">{{ card.title }}</span>
+                                                    <span class="card-by">{{ card.by }}</span>
+                                                </div>                                                
+                                                <img class="expand-toggle" src="./icons/unexpanded.svg" alt="ex">
+                                            </div>
+                                            <div class="subCard__body">
+                                                <p class="body__p">{{ card.info }}</p>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!-- FINALIZÓ LA MAGIA -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sfp-col-2"><!--Empty space--></div>
+                </div>
+                <!--END OF FLOATING CARDS -->
+
+
+
+
+
+                <!--BEGIN PROMO MATERIALS-->
+                <div class="sfp-row-fluid" v-if="rowContent.surfaceViewType == 'promo-materials'" v-bind:style="rowContent.backgroundColor">
+                    <div class="sfp-row-fluid">
+                        <div class="sfp-col-2" v-on:click="actionsOutSideOfMaterialCards()"></div>
+                        <div class="sfp-col-4 material-container-information sfp-helvetica-lt-std-light-zero" v-on:click="actionsOutSideOfMaterialCards()">
+                            <div class="material-container-information-subtitle sfp-helvetica-lt-std-bold">{{rowContent.materialSubTitle}}</div>
+                            <div class="material-container-information-title sfp-helvetica-ultra-with-space">{{rowContent.materialTitle}}</div>
+                            <div class="material-container-information-description">{{rowContent.materialDescription}}</div>
+                            <div class="material-container-information-description" v-html="rowContent.materialDescriptionSecondParraf"></div>
+                            
+                            <div class="material-container-information-list-box">
+                                <div class="material-container-information-header sfp-helvetica-lt-std-bold">CARACTERISTICAS</div>
+                                <div class="material-container-information-list">
+                                    <div class="material-container-information-list-title">MATERIAL</div>
+                                    <div class="material-container-information-list-subtitle">{{rowContent.materialName}}</div>
+                                </div>
+                                <div class="material-container-information-list">
+                                    <div class="material-container-information-list-title">USO</div>
+                                    <div class="material-container-information-list-subtitle">{{rowContent.materialUse}}</div>
+                                </div>
+                                <div class="material-container-information-list">
+                                    <div class="material-container-information-list-title">PAIS PRODUCTOR</div>
+                                    <div class="material-container-information-list-subtitle">{{rowContent.materialCountry}}</div>
+                                </div>
+                                <div class="material-container-information-list">
+                                    <div class="material-container-information-list-title">DISTRIBUIDOR MEXICO</div>
+                                    <div class="material-container-information-list-subtitle">{{rowContent.materialDistribution}}</div>
+                                </div>
+                                <div class="material-container-information-card-button-show-more ">
+                                    <div class="button-show-more-blue sfp-helvetica-lt-std-light-zero primary-button-color">
+                                        LEER MAS
+                                    </div>
+                                </div>
+                            </div>
+            
+                            
+                        </div>
+                        <div class="sfp-col-4 material-container-image sfp-helvetica-lt-std-light-zero">
+                            <div class="material-container-image-dynamic">
+                                <div class="material-container-image-dynamic-button-information-image"  v-on:click="timerOnMaterialsCards()">
+                                    <img v-bind:src="rowContent.materialImage" />
+                                </div>
+                                <div class="material-container-image-dynamic-button" v-for="materialButtonsPositions in rowContent.materialButtons" v-bind:style="'bottom:' + materialButtonsPositions.xPosition + 'px;left: ' + materialButtonsPositions.yPosition + 'px;'">
+                                    <div class="material-container-image-dynamic-button-green" v-on:click="timerOnMaterialsCards(materialButtonsPositions)">
+                                        <img src="icons/btn-minus-green.jpg" v-if="materialButtonsPositions.isActive"/>
+                                        <img src="icons/btn-plus-green.jpg" v-if="!materialButtonsPositions.isActive"/>
+                                    </div>
+                                    <div class="material-container-image-dynamic-button-information" v-if="materialButtonsPositions.isActive">
+                                        <img v-bind:src="materialButtonsPositions.imageUrl" />
+                                        <div class="material-container-image-dynamic-button-information-text">
+                                            <div class="material-container-image-dynamic-button-information-text-title">{{materialButtonsPositions.title}}</div>
+                                            <div class="material-container-image-dynamic-button-information-text-subTitle">{{materialButtonsPositions.subTitle}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sfp-row-fluid material-promo-soft-bottom"></div>
+                </div>
+                <!--END PROMO MATERIALS-->
+
+
+
+                <!--BEGIN ENGAGER SECTION-->
+                <div class="sfp-row-fluid projects-container"  v-if="rowContent.surfaceViewType == 'engager'">
+                    
+                    <div class="sfp-col-2"></div>
+                    
+                    <div class="sfp-col-8">
+                        <div class="sfp-row">
+                            <div class="sfp-col-4">
+                                <div class="sfp-row">
+                                    <div class="sfp-col-2">
+                                        <img class="engager-img-number-icon-2" src="img/engager/engager-1-inspire.png" />
+                                    </div>
+                                    <div class="sfp-col-10">
+                                        <div class="sfp-helvetica-lt-std-bold projects-container-subtitle">{{rowContent.row1Title}}</div>
+                                        <div class="engager-desc-txt">{{rowContent.row1Desc}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sfp-col-4">
+                                <div class="sfp-row">
+                                    <div class="sfp-col-2">
+                                        <img class="engager-img-number-icon-2" src="img/engager/engager-2-search.png" />
+                                    </div>
+                                    <div class="sfp-col-10">
+                                        <div class="sfp-helvetica-lt-std-bold projects-container-subtitle">{{rowContent.row2Title}}</div>
+                                        <div class="engager-desc-txt">{{rowContent.row2Desc}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sfp-col-4">
+                                <div class="sfp-row">
+                                    <div class="sfp-col-2">
+                                        <img class="engager-img-number-icon-2" src="img/engager/engager-3-connect.png" />
+                                    </div>
+                                    <div class="sfp-col-10">
+                                        <div class="sfp-helvetica-lt-std-bold projects-container-subtitle">{{rowContent.row3Title}}</div>
+                                        <div class="engager-desc-txt">{{rowContent.row3Desc}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sfp-col-2"></div>
+
+                </div>  
+                
+                <!--BEGIN ENGAGER SECTION-->
+
+
+                <!--BEGIN IMAGE SECTION-->
+                <div class="sfp-row-fluid highlights-container"  v-if="rowContent.surfaceViewType == 'image-engager'">
+                    <div class="highlights-container-background">
+                        <img src="img/footer/footer.jpg" />
+                    </div>
+                    <div class="sfp-col-2"></div>
+                    <div class="sfp-col-10 sfp-helvetica-lt-std-light-zero">
+                        <div class="highlights-container-top">
+                            <div class="page-header sfp-helvetica-ultra-with-space">{{rowContent.title}}</div>
+                            <div class="sfp-helvetica-lt-std-bold image-engager-container-subtitle margin-top-20">{{rowContent.subtitle}}</div>
+                            <div class="material-container-information-description image-engager-desc image-section-container-description">{{rowContent.desc}}</div>
+                            <div class="image-engager-margin-top-300">
+                                <div class="flex-aj-none">
+                                    <div class="button-show-more-blue sfp-helvetica-lt-std-light-zero primary-button-color padding-all-8 image-engager-margin-left-0">DISCOVER
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                
+                <!--END IMAGE SECTION-->
+
+
+                <!--BEGIN PROMO CATALOGS SECTION-->
+                <div class="sfp-row-fluid promo-catalogs"  v-if="rowContent.surfaceViewType == 'promo-catalogs'">
+                    {{rowContent.tmp}}
+                    <div class="sfp-col-2-fluid"></div>
+                    <div class="sfp-col-8-fluid">
+                        <div class="sfp-row-fluid">
+                            <div class="sfp-col-6-fluid">
+                                <div class="promo-catalogs-title">{{rowContent.title}}</div>
+                                <div class="promo-catalogs-subTitle">{{rowContent.subTitle}}</div>
+                                <div class="promo-catalogs-mainTitle">{{rowContent.mainTitle}}</div>
+                                <div class="promo-catalogs-mainSubTitle">{{rowContent.mainSubTitle}}</div>
+                            </div>
+                            <div class="sfp-col-6-fluid promo-catalogs-images-container">
+                                <img v-bind:src="'img/catalogs/' + rowContent.imageOne" />
+                                <img v-bind:src="'img/catalogs/' + rowContent.imageTwo" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sfp-col-2-fluid"></div>
+                </div>  
+
+                <!--BEGIN PROMO CATALOGS SECTION-->
+            </div>
+        </div>
+
+        <!--FOOTER SECTION-->
+        
+        <div class="sfp-row-fluid sfp-color-footer">
+            <div class="sfp-col-2"></div>
+            <div class="sfp-col-2">
+                <div class="footer-link-title">ABOUT</div>
+                <div class="footer-link-subtitle">Service</div>
+                <div class="footer-link-subtitle">Contact</div>
+                <div class="footer-link-subtitle">Terms of Use</div>
+                <div class="footer-link-subtitle">Sharing your Project</div>
+            </div>
+            <div class="sfp-col-1">
+                <div class="footer-link-title">PROMOTE</div>
+                <div class="footer-link-subtitle">Brand</div>
+                <div class="footer-link-subtitle">Manufacturer</div>
+                <div class="footer-link-subtitle">Consultant</div>
+                <div class="footer-link-subtitle">Media Kit</div>
+            </div>
+            <div class="sfp-col-1"></div>
+            <div class="sfp-col-6">
+                <ul class="footer-links-horizontal footer-link-title">
+                    <li>Facebook<span>/</span></li> 
+                    <li>Instagram<span>/</span></li> 
+                    <li>Pinterest<span>/</span></li> 
+                    <li>Linkedln<span>/</span></li>
+                    <li>Newsletter<span>/</span></li>
+                </ul>
+            </div> 
+            
+        </div>
+        <div class="sfp-row-fluid sfp-color-footer">
+            <div class="footer-copyright-extra-large">
+                Copyright © 2021 Surface Plus Inc. All rights reserved. 
+                <span class="term-use">Privacy. Terms of Use.</span>
+            </div>
+        </div>
+
+        <!--ENDS FOOTER SECTION-->
+    </div>
+      
+    </body>
+    <!--
+        Simulated CALLS
+    -->
+    <script src="js/simulatedCall/01-started-banner.js"></script>
+    <script src="js/simulatedCall/02-floating-cards.js"></script>
+    <script src="js/simulatedCall/03-promo-materials.js"></script>
+    <script src="js/simulatedCall/04-engager.js"></script>
+    <script src="js/simulatedCall/05-floating-cards.js"></script>
+    <script src="js/simulatedCall/06-promo-materials.js"></script>
+    <script src="js/simulatedCall/07-promo-catalogs.js"></script>
+    <script src="js/simulatedCall/08-floating-cards.js"></script>
+    <script src="js/simulatedCall/09-image-engager.js"></script>
+
+    <!--
+        ENDS Simulated CALLS
+    -->
+
+
+    <script src="js/domElements.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/mapData.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/axios.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/maincarousel.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cards.js"></script>
+</html> 

@@ -1,0 +1,46 @@
+.promo-catalogs{
+    margin-top: 120px;
+    margin-bottom: 120px
+}
+
+.promo-catalogs-title{
+    margin-top:30px;
+    font-family: arkHelveticaBold;
+    font-size: 20px;
+    color: rgb(100, 100, 100);
+    line-height: 11px;
+    margin-bottom: 3px;
+}
+
+.promo-catalogs-subTitle{
+    font-family: arkHelveticaBold;
+    font-size: 20px;
+    color: rgb(220, 220, 220);
+    margin-bottom: 5px;
+}
+
+.promo-catalogs-mainTitle{
+    font-family: arkHelveticaUltraLight;
+    font-size: 48px;
+    color: rgb(100, 100, 100);
+    width: 500px;
+}
+
+.promo-catalogs-mainSubTitle{
+    font-family: arkHelveticaBold;
+    font-size: 41px;
+    font-size: 48px;
+    color: rgb(100, 100, 100);
+}
+
+
+.promo-catalogs-images-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left:20px;
+}
+
+.promo-catalogs-images-container img{
+    width: 45%;
+}

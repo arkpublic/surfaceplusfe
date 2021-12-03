@@ -1,0 +1,55 @@
+/*DESING OF PLUS ELEMENT IN PLUS SPACE*/
+
+.general-border-bottom-plus{
+}
+
+.general-border-bottom-plus-not-require-background{
+  background-color: white;
+  height: 100px;
+  margin:0;
+  position: relative;
+}
+
+.general-border-bottom-plus-require-background{
+  background-color: rgb(251, 251, 251);
+  height: 100px;
+  margin:0;
+  position: relative;
+}
+
+.general-border-bottom-plus-one{
+    width: 25px;
+    height: 25px;
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.general-border-bottom-plus-two{
+    width: 25px;
+    height: 25px;
+    border-left: 1px solid red;
+    border-bottom: 1px solid red;
+    position: absolute;
+    bottom: 0;
+}
+
+.general-border-bottom-plus-three{
+    width: 25px;
+    height: 25px;
+    border-right: 1px solid red;
+    border-top: 1px solid red;
+    position: absolute;
+    right: 0;
+    margin-top: -1px;
+}
+
+.general-border-bottom-plus-four{
+    width: 25px;
+    height: 25px;
+    border-left: 1px solid red;
+    border-top: 1px solid red;
+    position: absolute;
+}
